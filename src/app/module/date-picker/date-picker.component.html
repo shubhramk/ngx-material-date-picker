@@ -1,0 +1,62 @@
+<ng-container [ngSwitch]="type">
+
+    <div class="daterange-calendar" *ngSwitchCase="datePickerType.DATERANGE_OVERLAY">
+        <mat-form-field>
+            <input matInput
+                   [placeholder]="placeholder"
+                   [satDatepicker]="picker"
+                   [value]="dateValue"
+                   (dateChange)="changeEvent($event)"
+                   >
+            <sat-datepicker #picker [rangeMode]="true">
+            </sat-datepicker>
+            <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
+        </mat-form-field>
+    </div>
+
+    <div class="inline-calendar" *ngSwitchCase="datePickerType.DATERANGE_INLINE">
+        <mat-form-field class="example-full-width">
+            <input matInput [placeholder]="placeholder" [value]="dateValue">
+            <mat-icon matSuffix (click)="showDatePicker = !showDatePicker">date_range</mat-icon>
+          </mat-form-field>
+          <diV class="mat-inline-calendar" *ngIf="showDatePicker">
+                <sat-calendar 
+                [rangeMode]="true"
+                (dateRangesChange)="changeEvent($event)"
+                [selected]="dateValue">
+                </sat-calendar>
+            </diV>
+
+    </div>
+
+    <div class="inline-calendar" *ngSwitchCase="datePickerType.INLINE">
+        <mat-form-field class="example-full-width">
+            <input matInput [placeholder]="placeholder" [value]="dateValue">
+            <mat-icon matSuffix (click)="showDatePicker = !showDatePicker">date_range</mat-icon>
+          </mat-form-field>
+          <diV class="mat-inline-calendar" *ngIf="showDatePicker">
+            <mat-calendar 
+                [selected]="dateValue" 
+                [minDate]="minDate" 
+                [dateFilter]="dateFilter"
+                (selectedChange)="changeEvent($event)">
+                </mat-calendar>
+            </diV>
+
+    </div>
+ 
+    <div class="overlay-calendar" *ngSwitchDefault>
+        <mat-form-field >
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <input 
+                matInput
+                [matDatepicker]="picker"
+                [min]="minDate"
+                [placeholder]="placeholder"
+                [value]="dateValue"
+                (dateChange)="changeEvent($event)"
+                >
+            <mat-datepicker panelClass="overlay-mode" #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+</ng-container>

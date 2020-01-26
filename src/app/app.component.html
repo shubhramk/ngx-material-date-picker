@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="column">
+      <h3>Inline Calendar (Material Library)</h3>
+      <div class="inline-calendar-example">
+        <app-datepicker
+              [(dateValue)]="selectedDate"
+              placeholder="Choose a Date"
+              [type] = 'datePickerType.INLINE'
+        ></app-datepicker>
+      </div>
+
+    </div>
+    <div class="column">
+
+      <h3>Overlay Calendar(Material Library)</h3>
+      <div class="overlay-example">
+          <app-datepicker
+              [(dateValue)]="selectedDate"
+              placeholder="Choose a Date"
+              [type] = 'datePickerType.OVERLAY'
+        ></app-datepicker>
+      </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="column">
+    <h3>Inline Range Calendar (Saturn Library)</h3>
+    <div class="range-calendar-example">
+      <app-datepicker
+            [(dateValue)]="date" 
+            placeholder="Choose a Date"
+            [type] = 'datePickerType.DATERANGE_INLINE'
+      ></app-datepicker>
+    </div>
+
+  </div>
+  <div class="column">
+    <h3>Overlay Range Calendar (Saturn Library)</h3>
+    <div class="range-calendar-example">
+      <app-datepicker
+            [(dateValue)]="date" 
+            placeholder="Choose a Date"
+            [type] = 'datePickerType.DATERANGE_OVERLAY'
+      ></app-datepicker>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+export enum DatePickerType {
+  INLINE = 'INLINE',
+  OVERLAY = 'OVERLAY',
+  DATERANGE_INLINE = 'DATERANGE_INLINE',
+  DATERANGE_OVERLAY = 'DATERANGE_OVERLAY'
+}
+
+export const DATE_FORMAT = 'MM/dd/yyyy';
